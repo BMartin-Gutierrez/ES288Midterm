@@ -12,6 +12,639 @@ TargetSentiment = {0.10000000149011612, 0.20000000298023224, 0,
    0.20000000298023224, 0.10000000149011612, 0.10000000149011612, 
    0.20000000298023224, 0.10000000149011612};
 
+IndicatorMagn = {4.199999809265137, 2.5999999046325684, 4.800000190734863, 
+   1.2999999523162842, 3.299999952316284, 2.299999952316284, 
+   0.6000000238418579, 3.0999999046325684, 2.0999999046325684, 
+   3.299999952316284, 4.300000190734863, 2.0999999046325684, 
+   1.600000023841858, 1.2000000476837158, 2.5999999046325684, 
+   9.600000381469727, 4.599999904632568};
+TargetMagn = {1.100000023841858, 2.0, 3.299999952316284, 3.5, 
+   3.700000047683716, 2.200000047683716, 0.20000000298023224, 
+   3.200000047683716, 2.200000047683716, 2.5, 2.700000047683716, 
+   2.4000000953674316, 1.2999999523162842, 2.4000000953674316, 
+   3.4000000953674316, 4.300000190734863, 4.0};
+
+
+
+
+
+
+In[639]:= num = Range[17];
+
+In[669]:= 
+bubbleTarget = Transpose[{num, TargetSentiment, TargetMagn}];
+
+In[670]:= bubbleIndicator = Transpose[{num, IndicatorSentiment, IndicatorMagn}];
+
+In[676]:= BubbleChart[bubbleIndicator, ChartStyle -> "RedGreenSplit"]
+
+Out[676]= \!\(\*
+GraphicsBox[{
+{RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{GrayLevel[0], Opacity[
+     0.3]}], 
+{RGBColor[0.12924425, 0.5667547500000001, 0.19971792499999996`], EdgeForm[{
+      GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{16., -0.30000001192092896`}, {1.6000000000000005`, 
+                 0.05000000149011613}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{16., -0.30000001192092896`}, {1.8757473397692994`, 
+                   0.05861710611471645}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{14.4, 
+               17.6}, {-0.3500000134110451, -0.2500000104308128}}, {
+               16, -0.30000001192092896`, 9.600000381469727}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{278.744365010346, 333.5027333492896}, {88.23181717027794, 
+            142.9901855092216}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 9.600000381469727]& ,
+TagBoxNote->"9.600000381469727"],
+StyleBox["9.600000381469727`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[9.600000381469727, {}], "Tooltip"]& ]}, 
+{RGBColor[1., 0.266002, 0.266002], EdgeForm[{GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{3., 0.}, {1.1313708498984765`, 0.03535534011299857}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{3., 0.}, {1.4071181896677754`, 0.043972444737598884`}]}, {}]}, 
+               StandardForm, Graphics]], 
+             Annotation[#, {{{1.8686291501015238`, 
+               4.1313708498984765`}, {-0.03535534011299857, 
+               0.03535534011299857}}, {3, 0, 4.800000190734863}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{72.13977779445696, 
+            111.44557781126167`}, {-62.317005257805306`, -23.01120524100064}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 4.800000190734863]& ,
+TagBoxNote->"4.800000190734863"],
+StyleBox["4.800000190734863`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[4.800000190734863, {}], "Tooltip"]& ]}, 
+{RGBColor[0., 0.502449, 0.0809339], EdgeForm[{GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{17., 2.7755575615628914`*^-17}, {1.1075498149031482`, 
+                 0.03461093274720958}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{17., 2.7755575615628914`*^-17}, {1.383297154672447, 
+                   0.0432280373718099}]}, {}]}, StandardForm, Graphics]], 
+             
+             Annotation[#, {{{15.892450185096852`, 
+               18.107549814903148`}, {-0.034610932747209555`, 
+               0.03461093274720961}}, {17, 0, 4.599999904632568}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{303.35037644561606`, 
+            341.8707021258593}, {-61.924268089524624`, -23.40394240928135}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 4.599999904632568]& ,
+TagBoxNote->"4.599999904632568"],
+StyleBox["4.599999904632568`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[4.599999904632568, {}], "Tooltip"]& ]}, 
+{RGBColor[0.7584885, 0.8798360000000001, 0.778035], EdgeForm[{GrayLevel[0], 
+      Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{11., 0.}, {1.0708252294211498`, 0.03346328941669463}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{11., 0.}, {1.3465725691904487`, 0.04208039404129495}]}, {}]}, 
+               StandardForm, Graphics]], 
+             Annotation[#, {{{9.92917477057885, 
+               12.07082522942115}, {-0.03346328941669463, 
+               0.03346328941669463}}, {11, 0, 4.300000190734863}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{205.0339136875825, 
+            242.34328361285426`}, {-61.318790212038856`, -24.00942028676709}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 4.300000190734863]& ,
+TagBoxNote->"4.300000190734863"],
+StyleBox["4.300000190734863`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[4.300000190734863, {}], "Tooltip"]& ]}, 
+{RGBColor[1., 0., 0.], EdgeForm[{GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{0.9999999999999999, -0.2000000029802322}, {1.0583004793689605`, 
+                 0.03307189096589916}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{0.9999999999999999, -0.2000000029802322}, {1.3340478191382594`, 
+                   0.041688995590499475`}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{-0.05830047936896077, 
+               2.0583004793689605`}, {-0.23307189394613137`, \
+-0.16692811201433305`}}, {1, -0.20000000298023224`, 4.199999809265137}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{40.37050805857322, 77.26688712346586}, {44.404440323716095`,
+             81.30081938860876}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 4.199999809265137]& ,
+TagBoxNote->"4.199999809265137"],
+StyleBox["4.199999809265137`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[4.199999809265137, {}], "Tooltip"]& ]}, 
+{RGBColor[1., 0.532004, 0.532004], EdgeForm[{GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{5., -0.20000000298023224`}, {0.9380831265491807, 
+                 0.029315098578319876`}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{5., -0.20000000298023224`}, {1.2138304663184796`, 
+                   0.03793220320292019}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{4.061916873450819, 
+               5.938083126549181}, {-0.22931510155855211`, \
+-0.17068490440191236`}}, {5, -0.20000000298023224`, 3.299999952316284}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{108.30049078875236`, 141.2328252406458}, {46.38646263021572,
+             79.31879708210917}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 3.299999952316284]& ,
+TagBoxNote->"3.299999952316284"],
+StyleBox["3.299999952316284`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[3.299999952316284, {}], "Tooltip"]& ]}, 
+{RGBColor[0.87924425, 0.939918, 0.8890175], EdgeForm[{GrayLevel[0], Opacity[
+      0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{10., -0.1000000014901161}, {0.9380831265491807, 0.02931509857831989}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{10., -0.1000000014901161}, {1.2138304663184796`, 
+                   0.037932203202920206`}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{9.06191687345082, 
+               10.93808312654918}, {-0.129315100068436, \
+-0.07068490291179622}}, {10, -0.10000000149011612`, 3.299999952316284}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{190.73544131835177`, 
+            223.66777577024524`}, {-6.371904922567005, 26.560429529326463`}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 3.299999952316284]& ,
+TagBoxNote->"3.299999952316284"],
+StyleBox["3.299999952316284`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[3.299999952316284, {}], "Tooltip"]& ]}, 
+{RGBColor[1., 0.883001, 0.883001], EdgeForm[{GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{8., -0.10000000149011609`}, {0.909212081082611, 0.02841287838060133}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{8., -0.10000000149011609`}, {1.1849594208519099`, 
+                   0.03702998300520165}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{7.090787918917389, 
+               8.909212081082611}, {-0.12841287987071742`, \
+-0.07158712310951476}}, {8, -0.10000000149011612`, 3.0999999046325684`}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{158.2374577474669, 
+            190.21779891745055`}, {-5.895908281612115, 26.08443288837156}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 3.0999999046325684`]& ,
+TagBoxNote->"3.0999999046325684"],
+StyleBox["3.0999999046325684`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[3.0999999046325684`, {}], "Tooltip"]& ]}, 
+{RGBColor[1., 0.133001, 0.133001], EdgeForm[{GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{2., 2.7755575615628914`*^-17}, {0.8326663679718481, 
+                 0.026020824774601242`}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{2., 2.7755575615628914`*^-17}, {1.1084137077411471`, 
+                   0.03463792939920156}]}, {}]}, StandardForm, Graphics]], 
+             
+             Annotation[#, {{{1.167333632028152, 
+               2.8326663679718482`}, {-0.026020824774601214`, 
+               0.02602082477460127}}, {2, 0, 2.5999999046325684`}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{60.57752552665532, 
+            90.03384986722352}, {-57.3922674196871, -27.93594307911888}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 2.5999999046325684`]& ,
+TagBoxNote->"2.5999999046325684"],
+StyleBox["2.5999999046325684`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[2.5999999046325684`, {}], "Tooltip"]& ]}, 
+{RGBColor[0.2584885, 0.6310605, 0.31850195], EdgeForm[{GrayLevel[0], Opacity[
+      0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{15., 2.7755575615628914`*^-17}, {0.8326663679718482, 
+                 0.026020824774601242`}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{15., 2.7755575615628914`*^-17}, {1.1084137077411471`, 
+                   0.03463792939920156}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{14.167333632028152`, 
+               15.832666367971848`}, {-0.026020824774601214`, 
+               0.02602082477460127}}, {15, 0, 2.5999999046325684`}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{274.9083969036138, 
+            304.36472124418196`}, {-57.3922674196871, -27.93594307911888}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 2.5999999046325684`]& ,
+TagBoxNote->"2.5999999046325684"],
+StyleBox["2.5999999046325684`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[2.5999999046325684`, {}], "Tooltip"]& ]}, 
+{RGBColor[1., 0.649003, 0.649003], EdgeForm[{GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{6., 0.2000000029802323}, {0.7831559846199223, 0.02447362524874347}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{6., 0.2000000029802323}, {1.0589033243892212`, 
+                   0.033090729873343785`}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{5.216844015380078, 6.783155984619922}, {
+               0.17552637773148883`, 0.22447362822897576`}}, {
+               6, 0.20000000298023224`, 2.299999952316284}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{127.34176315079836`, 
+            155.16553309043957`}, {-162.09272532478906`, -134.2689553851478}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 2.299999952316284]& ,
+TagBoxNote->"2.299999952316284"],
+StyleBox["2.299999952316284`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[2.299999952316284, {}], "Tooltip"]& ]}, 
+{RGBColor[1., 1., 1.], EdgeForm[{GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{9., 0.10000000149011609`}, {0.7483314454947667, 0.02338535836864944}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{9., 0.10000000149011609`}, {1.0240787852640656`, 
+                   0.032002462993249756`}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{8.251668554505233, 9.748331445494767}, {
+               0.07661464312146665, 0.12338535985876553`}}, {
+               9, 0.10000000149011612`, 2.0999999046325684`}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{177.37688530055766`, 
+            204.05235157619956`}, {-108.76020594000661`, -82.08473966436472}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 2.0999999046325684`]& ,
+TagBoxNote->"2.0999999046325684"],
+StyleBox["2.0999999046325684`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[2.0999999046325684`, {}], "Tooltip"]& ]}, 
+{RGBColor[0.6377327500000001, 0.819754, 0.6670524999999999], EdgeForm[{
+      GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{12., 2.7755575615628914`*^-17}, {0.7483314454947667, 
+                 0.02338535836864944}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{12., 2.7755575615628914`*^-17}, {1.0240787852640656`, 
+                   0.032002462993249756`}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{11.251668554505233`, 
+               12.748331445494767`}, {-0.02338535836864941, 
+               0.023385358368649467`}}, {12, 0, 2.0999999046325684`}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{226.8378556183173, 
+            253.5133218939592}, {-56.00183838722394, -29.326372111582035`}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 2.0999999046325684`]& ,
+TagBoxNote->"2.0999999046325684"],
+StyleBox["2.0999999046325684`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[2.0999999046325684`, {}], "Tooltip"]& ]}, 
+{RGBColor[0.516977, 0.759672, 0.55607], EdgeForm[{GrayLevel[0], Opacity[
+      0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{13., 2.7755575615628914`*^-17}, {0.6531972566310174, 
+                 0.02041241487805659}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{13., 2.7755575615628914`*^-17}, {0.9289445964003162, 
+                   0.029029519502656902`}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{12.346802743368983`, 
+               13.653197256631017`}, {-0.020412414878056562`, 
+               0.020412414878056617`}}, {13, 0, 1.600000023841858}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{244.89332215476853`, 
+            268.4318355693477}, {-54.43336195669255, -30.89484854211342}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 1.600000023841858]& ,
+TagBoxNote->"1.600000023841858"],
+StyleBox["1.600000023841858`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[1.600000023841858, {}], "Tooltip"]& ]}, 
+{RGBColor[1., 0.399003, 0.399003], EdgeForm[{GrayLevel[0], Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{4., 0.}, {0.5887840352588665, 0.018399501650187444`}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{4., 0.}, {0.8645313750281653, 0.027016606274787757`}]}, {}]}, 
+               StandardForm, Graphics]], 
+             
+             Annotation[#, {{{3.4112159647411335`, 
+               4.5887840352588665`}, {-0.018399501650187444`, 
+               0.018399501650187444`}}, {4, 0, 1.2999999523162842`}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{97.57239134494269, 
+            118.98694447261572`}, {-53.37138181323949, -31.95682868556645}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 1.2999999523162842`]& ,
+TagBoxNote->"1.2999999523162842"],
+StyleBox["1.2999999523162842`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[1.2999999523162842`, {}], "Tooltip"]& ]}, 
+{RGBColor[0.38773275, 0.69536625, 0.437285975], EdgeForm[{GrayLevel[0], 
+      Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{14., 2.7755575615628914`*^-17}, {0.5656854249492387, 
+                 0.01767767005649931}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{14., 2.7755575615628914`*^-17}, {0.8414327647185376, 
+                   0.026294774681099625`}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{13.434314575050761`, 
+               14.565685424949239`}, {-0.017677670056499284`, 
+               0.01767767005649934}}, {14, 0, 1.2000000476837158`}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{262.82311896377684`, 
+            283.4760189721792}, {-52.99055525360417, -32.3376552452018}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 1.2000000476837158`]& ,
+TagBoxNote->"1.2000000476837158"],
+StyleBox["1.2000000476837158`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[1.2000000476837158`, {}], "Tooltip"]& ]}, 
+{RGBColor[1., 0.7660020000000001, 0.7660020000000001], EdgeForm[{GrayLevel[0],
+       Opacity[0.3]}], 
+TagBox[
+TooltipBox[
+TagBox[
+TagBox[
+DynamicBox[{
+FEPrivate`If[
+CurrentValue["MouseOver"], 
+EdgeForm[{
+GrayLevel[0.5], 
+AbsoluteThickness[1.5], 
+Opacity[0.66]}], {}, {}], 
+TagBox[
+DynamicBox[
+Typeset`ToBoxes[{
+Disk[{7., 2.7755575615628914`*^-17}, {0.40000000000000036`, 
+                 0.012500000372529046`}], 
+If[
+CurrentValue["MouseOver"], {
+Thickness[0.009999999999999998], 
+Circle[{7., 2.7755575615628914`*^-17}, {0.6757473397692992, 
+                   0.02111710499712936}]}, {}]}, StandardForm, Graphics]], 
+             Annotation[#, {{{6.6, 7.4}, {-0.012500000372529019`, 
+               0.012500000372529074`}}, {7, 0, 0.6000000238418579}, {}}, 
+              "BubbleChartBubble"]& ]},
+ImageSizeCache->{{150.14584218417087`, 
+            165.3354342689068}, {-50.258901291770954`, -35.069309207035026`}}],
+"DelayedMouseEffectStyle"],
+StatusArea[#, 0.6000000238418579]& ,
+TagBoxNote->"0.6000000238418579"],
+StyleBox["0.6000000238418579`", {}, StripOnInput -> False]],
+Annotation[#, 
+Style[0.6000000238418579, {}], 
+        "Tooltip"]& ]}}, {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}}, {}, {}},
+AspectRatio->1,
+AxesLabel->{None, None},
+AxesOrigin->{-0.16695332454286982`, -0.3500000134110451},
+DisplayFunction->Identity,
+Frame->True,
+FrameLabel->{{None, None}, {None, None}},
+FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+GridLines->{None, None},
+GridLinesStyle->Directive[
+GrayLevel[0.5, 0.4]],
+PlotRange->{{-0.16695332454286982`, 18.21620266007706}, {-0.3500000134110451, 
+    0.22447362822897576`}},
+PlotRangeClipping->True,
+PlotRangePadding->{{
+Scaled[0.05], 
+Scaled[0.05]}, {
+Scaled[0.05], 
+Scaled[0.05]}},
+Ticks->{Automatic, Automatic}]\)
+
 In[530]:= SadFace = ImageResize[
    Import["C:\\Users\\Brian\\Downloads\\SadFace.png", "PNG"], 86];
 NeutralFace = 
@@ -781,31 +1414,31 @@ Out[538]= Manipulate[AngularGauge[IndicatorSentiment[[SDG]], {-1, 1},
    PlotTheme -> {"Minimal", "GaugeHalf"}, 
    GaugeStyle -> {RGBColor["#77DD76"], RGBColor["#FF6962"]}], {SDG, 1, 17, 1}]
 
-In[540]:= Manipulate[
- Overlay[{AngularGauge[IndicatorSentiment[[SDG]], {-1, 1}, 
-    PlotTheme -> {"Minimal"}, 
-    GaugeStyle -> {RGBColor["#77DD76"], RGBColor["#FF6962"]}], face[SDG]}, 
-  Alignment -> {Center, -.13}], {SDG, 1, Length[IndicatorSentiment], 1}]
+In[561]:= a = Manipulate[
+  Overlay[{AngularGauge[IndicatorSentiment[[SDG]], {-1, 1}, 
+     PlotTheme -> {"Minimal"}, 
+     GaugeStyle -> {RGBColor["#77DD76"], RGBColor["#FF6962"]}], face[SDG]}, 
+   Alignment -> {Center, -.13}], {SDG, 1, Length[IndicatorSentiment], 1}]
 
-Out[540]= Manipulate[Overlay[{AngularGauge[IndicatorSentiment[[SDG]], {-1, 1}, 
+Out[561]= Manipulate[Overlay[{AngularGauge[IndicatorSentiment[[SDG]], {-1, 1}, 
      PlotTheme -> {"Minimal"}, GaugeStyle -> {RGBColor["#77DD76"], 
        RGBColor["#FF6962"]}], face[SDG]}, Alignment -> {Center, -0.13}], 
   {SDG, 1, 17, 1}]
 
-In[557]:= GraphicsRow[{Manipulate[
-   Overlay[{AngularGauge[IndicatorSentiment[[Indicator]], {-1, 1}, 
-      PlotTheme -> {"Minimal"}, 
-      GaugeStyle -> {RGBColor["#48A14D"], RGBColor["#A1489C"]}], 
-     IndicatorFace[Indicator]}, Alignment -> {Center, -.13}], {Indicator, 1, 
-    Length[IndicatorSentiment], 1}], 
-  Manipulate[
-   Overlay[{AngularGauge[TargetSentiment[[Target]], {-1, 1}, 
-      PlotTheme -> {"Minimal"}, 
-      GaugeStyle -> {RGBColor["#48A14D"], RGBColor["#FF6962"]}], 
-     TargetFace[Target]}, Alignment -> {Center, -.13}], {Target, 1, 
-    Length[IndicatorSentiment], 1}]}]
+In[566]:= m = GraphicsRow[{Manipulate[
+    Overlay[{AngularGauge[IndicatorSentiment[[Indicator]], {-1, 1}, 
+       PlotTheme -> {"Minimal"}, 
+       GaugeStyle -> {RGBColor["#48A14D"], RGBColor["#FF6962"]}], 
+      IndicatorFace[Indicator]}, Alignment -> {Center, -.13}], {Indicator, 1, 
+     Length[IndicatorSentiment], 1}], 
+   Manipulate[
+    Overlay[{AngularGauge[TargetSentiment[[Target]], {-1, 1}, 
+       PlotTheme -> {"Minimal"}, 
+       GaugeStyle -> {RGBColor["#48A14D"], RGBColor["#FF6962"]}], 
+      TargetFace[Target]}, Alignment -> {Center, -.13}], {Target, 1, 
+     Length[IndicatorSentiment], 1}]}]
 
-Out[557]= \!\(\*
+Out[566]= \!\(\*
 GraphicsBox[{{}, {InsetBox[
 TagBox[
 FormBox[
@@ -829,7 +1462,7 @@ AngularGauge[
 Part[$CellContext`IndicatorSentiment, $CellContext`Indicator$$], {-1, 1}, 
                 PlotTheme -> {"Minimal"}, GaugeStyle -> {
 RGBColor["#48A14D"], 
-RGBColor["#A1489C"]}], 
+RGBColor["#FF6962"]}], 
 $CellContext`IndicatorFace[$CellContext`Indicator$$]}, 
               Alignment -> {Center, -0.13}], 
             "Specifications" :> {{$CellContext`Indicator$$, 1, 17, 1}}, 
@@ -891,3 +1524,75 @@ ImageSize->{
 UpTo[600], Automatic},
 PlotRange->{{0, 583.4666666666667}, {-270.9, 0}},
 PlotRangePadding->{6, 5}]\)
+
+In[562]:= Export["manipulate.avi", a]
+
+During evaluation of In[562]:= General::sysffmpeg: Using a limited version of FFmpeg. Install FFmpeg to get more complete codec support.
+
+Out[562]= "manipulate.avi"
+
+In[563]:= SystemOpen[DirectoryName[AbsoluteFileName["manipulate.avi"]]]
+
+In[567]:= ind = Manipulate[
+  Overlay[{AngularGauge[IndicatorSentiment[[Indicator]], {-1, 1}, 
+     PlotTheme -> {"Minimal"}, 
+     GaugeStyle -> {RGBColor["#48A14D"], RGBColor["#FF6962"]}], 
+    IndicatorFace[Indicator]}, Alignment -> {Center, -.13}], {Indicator, 1, 
+   Length[IndicatorSentiment], 1}]
+
+Out[567]= Manipulate[Overlay[{AngularGauge[IndicatorSentiment[[Indicator]], {-1, 1}, 
+     PlotTheme -> {"Minimal"}, GaugeStyle -> {RGBColor["#48A14D"], 
+       RGBColor["#FF6962"]}], IndicatorFace[Indicator]}, 
+   Alignment -> {Center, -0.13}], {Indicator, 1, 17, 1}]
+
+In[599]:= tar = Manipulate[
+  ImageCompose[
+   AngularGauge[TargetSentiment[[Target]], {-1, 1}, PlotTheme -> {"Minimal"}, 
+    GaugeStyle -> {RGBColor["#48A14D"], RGBColor["#FF6962"]}], 
+   TargetFace[Target], Center, Center], {Target, 1, 
+   Length[IndicatorSentiment], 1}]
+
+Out[599]= Manipulate[ImageCompose[AngularGauge[TargetSentiment[[Target]], {-1, 1}, 
+    PlotTheme -> {"Minimal"}, GaugeStyle -> {RGBColor["#48A14D"], 
+      RGBColor["#FF6962"]}], TargetFace[Target], Center, Center], 
+  {{Target, 17}, 1, 17, 1}]
+
+In[591]:= Export["IndiManipulate.mp4", ind, "FrameRate" -> 3]
+
+Out[591]= "IndiManipulate.mp4"
+
+In[592]:= Export["TarManipulate.mp4", tar, "FrameRate" -> 3]
+
+Out[592]= "TarManipulate.mp4"
+
+In[593]:= SystemOpen[DirectoryName[AbsoluteFileName["TarManipulate.mp4"]]]
+
+In[625]:= Manipulate[
+ With[{f = Function[x, x^3 + 3 x^2 - 3 x - 1]}, 
+  Column[{Row[{AngularGauge[(D[f[x], {x, 1}] /. x -> p), {-20, 20}, 
+       GaugeLabels -> {Placed[
+          "\!\(\*SuperscriptBox[\(1\), \(st\)]\) Derivative", {.5, .7}], 
+         Automatic}], 
+      AngularGauge[(D[f[x], {x, 2}] /. x -> p), {-20, 20}, 
+       GaugeLabels -> {Placed[
+          "\!\(\*SuperscriptBox[\(2\), \(nd\)]\) Derivative", {.5, .7}], 
+         Automatic}]}], 
+    Plot[f[t], {t, -4, 2}, 
+     Epilog -> {PointSize[Large], Red, Point[{p, f[p]}]}, 
+     ImageSize -> Medium]}, Center]], {{p, -3.5}, -4, 2}]
+
+Out[625]= Manipulate[With[{f$ = Function[x, x^3 + 3*x^2 - 3*x - 1]}, 
+   Column[{Row[{AngularGauge[D[f$[x], {x, 1}] /. x -> p, {-20, 20}, 
+        GaugeLabels -> 
+         {Placed["\!\(\*SuperscriptBox[\(1\), \(st\)]\) Derivative", 
+           {0.5, 0.7}], Automatic}], AngularGauge[D[f$[x], {x, 2}] /. x -> p, 
+        {-20, 20}, GaugeLabels -> 
+         {Placed["\!\(\*SuperscriptBox[\(2\), \(nd\)]\) Derivative", 
+           {0.5, 0.7}], Automatic}]}], Plot[f$[t], {t, -4, 2}, 
+      Epilog -> {PointSize[Large], Red, Point[{p, f$[p]}]}, 
+      ImageSize -> Medium]}, Center]], {{p, -3.5}, -4, 2}]
+
+1.100000023841858, 2.0, 3.299999952316284, 3.5, 3.700000047683716, \
+2.200000047683716, 3.200000047683716, 2.200000047683716, 2.5, \
+2.700000047683716, 2.4000000953674316, 1.2999999523162842, \
+2.4000000953674316, 3.4000000953674316, 4.300000190734863, 4.0
