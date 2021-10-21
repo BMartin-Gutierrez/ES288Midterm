@@ -1,125 +1,36 @@
-(* Content-type: application/vnd.wolfram.mathematica *)
-
-(*** Wolfram Notebook File ***)
-(* http://www.wolfram.com/nb *)
-
-(* CreatedBy='Mathematica 12.3' *)
-
-(*CacheID: 234*)
-(* Internal cache information:
-NotebookFileLineBreakTest
-NotebookFileLineBreakTest
-NotebookDataPosition[       158,          7]
-NotebookDataLength[     50104,       1142]
-NotebookOptionsPosition[     48487,       1107]
-NotebookOutlinePosition[     48927,       1123]
-CellTagsIndexPosition[     48884,       1120]
-WindowFrame->Normal*)
-
-(* Beginning of Notebook Content *)
-Notebook[{
-
-Cell[CellGroupData[{
-Cell["\<\
 Brian Martin
-ES 288 Midterm \
-\>", "Title",
- CellChangeTimes->{{3.843785310984352*^9, 
-  3.8437853238547115`*^9}},ExpressionUUID->"c80c47ed-46c3-4a3d-a2a1-\
-ba385f708b95"],
+ES 288 Midterm 
 
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
-  RowBox[{"IndicatorSentiment", " ", "=", " ", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"-", "0.20000000298023224"}], ",", "0", ",", "0", ",", "0", ",", 
-     RowBox[{"-", "0.20000000298023224"}], ",", "0.20000000298023224", ",", 
-     "0", ",", 
-     RowBox[{"-", "0.10000000149011612"}], ",", "0.10000000149011612", ",", 
-     RowBox[{"-", "0.10000000149011612"}], ",", "0", ",", "0", ",", "0", ",", 
-     "0", ",", "0", ",", 
-     RowBox[{"-", "0.30000001192092896"}], ",", "0"}], "}"}]}]}]], "Input",
- CellChangeTimes->{{3.8437771070193253`*^9, 3.843777272723802*^9}, 
-   3.8437853009567413`*^9},ExpressionUUID->"72cc99ec-46bc-4748-9724-\
-7cd0130769e5"],
+In[528]:= 
+IndicatorSentiment = {-0.20000000298023224, 0, 0, 0, -0.20000000298023224, 
+   0.20000000298023224, 0, -0.10000000149011612, 
+   0.10000000149011612, -0.10000000149011612, 0, 0, 0, 0, 
+   0, -0.30000001192092896, 0};
+TargetSentiment = {0.10000000149011612, 0.20000000298023224, 0, 
+   0.30000001192092896, 0, 0.20000000298023224, 0, 0.20000000298023224, 
+   0.20000000298023224, 0, 0.20000000298023224, 0.10000000149011612, 
+   0.20000000298023224, 0.10000000149011612, 0.10000000149011612, 
+   0.20000000298023224, 0.10000000149011612};
 
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"SadFace", "=", 
-   RowBox[{"ImageResize", "[", 
-    RowBox[{
-     RowBox[{"Import", "[", 
-      RowBox[{
-      "\"\<C:\\\\Users\\\\Brian\\\\Downloads\\\\SadFace.png\>\"", ",", 
-       "\"\<PNG\>\""}], "]"}], ",", "86"}], "]"}]}], ";"}], "\n", 
- RowBox[{
-  RowBox[{"NeutralFace", "=", 
-   RowBox[{"ImageResize", "[", 
-    RowBox[{
-     RowBox[{"Import", "[", 
-      RowBox[{
-      "\"\<C:\\\\Users\\\\Brian\\\\Downloads\\\\NeutralFace.png\>\"", ",", 
-       "\"\<PNG\>\""}], "]"}], ",", "86"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"HappyFace", "=", 
-   RowBox[{"ImageResize", "[", 
-    RowBox[{
-     RowBox[{"Import", "[", 
-      RowBox[{
-      "\"\<C:\\\\Users\\\\Brian\\\\Downloads\\\\HappyFace.png\>\"", ",", 
-       "\"\<PNG\>\""}], "]"}], ",", "90"}], "]"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.843778532330556*^9, 3.843778552638848*^9}, {
-  3.843778634298216*^9, 3.843778644723048*^9}, {3.8437787063458724`*^9, 
-  3.8437787080852594`*^9}, {3.8437789323873124`*^9, 3.8437789369293356`*^9}, {
-  3.8437792200603466`*^9, 3.843779247035136*^9}, {3.8437794565127664`*^9, 
-  3.8437794709955482`*^9}, {3.8437827336237745`*^9, 3.843782733717229*^9}},
- CellLabel->
-  "In[344]:=",ExpressionUUID->"2710c2cf-2bf4-4dfd-aedb-acc0fa32aadd"],
+In[530]:= SadFace = ImageResize[
+   Import["C:\\Users\\Brian\\Downloads\\SadFace.png", "PNG"], 86];
+NeutralFace = 
+  ImageResize[Import["C:\\Users\\Brian\\Downloads\\NeutralFace.png", "PNG"], 
+   86];
+HappyFace = 
+  ImageResize[Import["C:\\Users\\Brian\\Downloads\\HappyFace.png", "PNG"], 
+   90];
 
-Cell[CellGroupData[{
+In[533]:= VerticalGauge[IndicatorSentiment, {-0.6, 0.6}, 
+  GaugeMarkers -> Placed["Bar", "Scale"], GaugeFaceStyle -> Black, 
+  GaugeFrameStyle -> Darker@Gray,  
+  ScaleDivisions -> 5, GaugeLabels -> Placed["Frequency", Bottom],
+  AxesStyle -> Gray, LabelStyle -> Directive[White], ScaleDivisions -> 6]
 
-Cell[BoxData[
- RowBox[{"VerticalGauge", "[", 
-  RowBox[{"IndicatorSentiment", ",", " ", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"-", "0.6"}], ",", " ", "0.6"}], "}"}], ",", " ", "\n", " ", 
-   RowBox[{"GaugeMarkers", " ", "->", " ", 
-    RowBox[{"Placed", "[", 
-     RowBox[{"\"\<Bar\>\"", ",", " ", "\"\<Scale\>\""}], "]"}]}], ",", " ", 
-   RowBox[{"GaugeFaceStyle", " ", "->", " ", "Black"}], ",", " ", "\n", " ", 
-   RowBox[{"GaugeFrameStyle", " ", "->", " ", 
-    RowBox[{"Darker", "@", "Gray"}]}], ",", "  ", "\n", " ", 
-   RowBox[{"ScaleDivisions", " ", "->", " ", "5"}], ",", " ", 
-   RowBox[{"GaugeLabels", " ", "->", " ", 
-    RowBox[{"Placed", "[", 
-     RowBox[{"\"\<Frequency\>\"", ",", " ", "Bottom"}], "]"}]}], ",", "\n", 
-   " ", 
-   RowBox[{"AxesStyle", " ", "->", " ", "Gray"}], ",", " ", 
-   RowBox[{"LabelStyle", " ", "->", " ", 
-    RowBox[{"Directive", "[", "White", "]"}]}], ",", 
-   RowBox[{"ScaleDivisions", "\[Rule]", "6"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.8437773285214214`*^9, 3.843777328522419*^9}, {
-  3.843777466957624*^9, 3.843777512973031*^9}, {3.8437775731790953`*^9, 
-  3.8437775859007998`*^9}, {3.843778061424883*^9, 3.8437780643558493`*^9}, {
-  3.8437781037552314`*^9, 3.8437781209406815`*^9}, {3.843778274554262*^9, 
-  3.8437783222779064`*^9}, {3.8437795512162848`*^9, 3.843779576385461*^9}, {
-  3.8437796267896633`*^9, 3.843779659586053*^9}, {3.843779690865487*^9, 
-  3.8437797518806157`*^9}, {3.8437799798831425`*^9, 3.8437800310410123`*^9}, {
-  3.8437817188444805`*^9, 3.843781722506771*^9}, {3.8437818894550643`*^9, 
-  3.843781912583994*^9}, {3.8437834190070224`*^9, 3.8437834682092123`*^9}, {
-  3.8437838823352437`*^9, 3.843783886014973*^9}, {3.843783938254157*^9, 
-  3.843783950229186*^9}},
- CellLabel->
-  "In[358]:=",ExpressionUUID->"dd693ba0-f36e-472f-849d-6464d58e4cb9"],
-
-Cell[BoxData[
- GraphicsBox[{
-   {RGBColor[
-    0.33333333333333337`, 0.33333333333333337`, 0.33333333333333337`], 
-    FilledCurveBox[{{Line[CompressedData["
+Out[533]= \!\(\*
+GraphicsBox[{
+{RGBColor[0.33333333333333337`, 0.33333333333333337`, 0.33333333333333337`], 
+     FilledCurveBox[{{Line[CompressedData["
 1:eJxVlX9MzGEcx7/5OTnixLJoNT92mFWYIXzScIj8PEJLWDQ5VspM05C7zW9Z
 WjHjjzM2za6u7r5n8um+36mZ0DK/lsZhsX7xSNfIzI89b5vvdrs927Pn+Xze
 79fn/URt27smvY+iKBm/f3/+p//9dA6YUs5q3Z/JnLU/9HKMzluUPdEGRVC7
@@ -141,7 +52,7 @@ xxnhkdHLR3sZvAY8dWPnm70Mnh3x2bWTM70M3g2vS5s7jnkZ86CPjEyxFnn5
 /3n5t2asMW/Yj3nEeZhX3Id5Rj2Yd9SLPEA/yAv0izyBHsgb6IU8gp7IK+iN
 PIMfyDv4hTyEn8hL+I08BQ/IW/CCPAZPyGvwhjwHj8h78Ir3ADzjvQDveE8w
 D3hvMC+/AKdvdPU=
-        "]]}, {Line[CompressedData["
+"]]}, {Line[CompressedData["
 1:eJw9lXtMzWEYx0tTLSzUSZLStCgbLUSanlzCNLNfGaIdSS5zGSGyjHNQzWUr
 sRjTvey4NCedOtU556lzzm8aG1tlc4kx0SiXF4dl/qB5v/44+513e/e+z/P9
 fp7vG5a5N2XrCDc3tx1/f8Nfu2t6epFd5dD8AcUcIijdw2pKZZUzu9w3XJwh
@@ -163,8 +74,8 @@ y8rg0Zy4J0JMsDF4veW0FW9SbAyeCz5f2LL8mI3Be2FOfmJemY0xD4Nxt8ue
 GW2MeWmRc4R5whrzhv2YR5yHecV9mGfUg3lHvcgD9IO8QL/IE+iBvIFeyCPo
 ibyC3sgz+IG8g1/IQ/iJvITfyFPwgLwFL8hj8IS8Bm/Ic/CIvAeveA/AM94L
 8I73BPOA9wbz8geZtW+7
-        "]]}}]}, 
-   {GrayLevel[0], FilledCurveBox[{{Line[CompressedData["
+"]]}}]}, 
+{GrayLevel[0], FilledCurveBox[{{Line[CompressedData["
 1:eJxVlX9MzGEcx7/5OTnixLJoNT92mFWYIXzScIj8PEJLWDQ5VspM05C7zW9Z
 WjHjjzM2za6u7r5n8um+36mZ0DK/lsZhsX7xSNfIzI89b5vvdrs927Pn+Xze
 79fn/URt27smvY+iKBm/f3/+p//9dA6YUs5q3Z/JnLU/9HKMzluUPdEGRVC7
@@ -186,341 +97,293 @@ xxnhkdHLR3sZvAY8dWPnm70Mnh3x2bWTM70M3g2vS5s7jnkZ86CPjEyxFnn5
 /3n5t2asMW/Yj3nEeZhX3Id5Rj2Yd9SLPEA/yAv0izyBHsgb6IU8gp7IK+iN
 PIMfyDv4hTyEn8hL+I08BQ/IW/CCPAZPyGvwhjwHj8h78Ir3ADzjvQDveE8w
 D3hvMC+/AKdvdPU=
-        "]]}}]}, GeometricTransformationBox[{}, {{{0, -1}, {1, 0}}, {0, 0}}], {
-    {GrayLevel[0.5], AbsoluteThickness[1], 
-     StyleBox[{
-       {GrayLevel[0.5], LineBox[{{0., 0.}, {0., 1.}}]}, 
-       {GrayLevel[0.5], AbsoluteThickness[0.5], CapForm[
-        "Butt"], {
-         LineBox[{{{0., 0.08333333333333331}, 
-            Scaled[{-0.06, 0.}, {0., 0.08333333333333331}]}, {{0., 
-            0.2916666666666667}, 
-            Scaled[{-0.06, 0.}, {0., 0.2916666666666667}]}, {{0., 0.5}, 
-            Scaled[{-0.06, 0.}, {0., 0.5}]}, {{0., 0.7083333333333334}, 
-            Scaled[{-0.06, 0.}, {0., 0.7083333333333334}]}, {{0., 
-            0.9166666666666667}, 
-            Scaled[{-0.06, 0.}, {0., 0.9166666666666667}]}}], LineBox[{}]}, 
-        {GrayLevel[1], 
-         StyleBox[{{
-            {GrayLevel[1], InsetBox[
-              TagBox[
-               InterpretationBox[
-                StyleBox["\<\"-0.50\"\>",
-                 ShowStringCharacters->False],
-                -0.5,
-                AutoDelete->True],
-               NumberForm[#, {
-                 DirectedInfinity[1], 2}]& ], 
-              Offset[{3., 0.}, {0., 0.08333333333333331}], 
-              ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
-              TagBox[
-               InterpretationBox[
-                StyleBox["\<\"-0.25\"\>",
-                 ShowStringCharacters->False],
-                -0.25,
-                AutoDelete->True],
-               NumberForm[#, {
-                 DirectedInfinity[1], 2}]& ], 
-              Offset[{3., 0.}, {0., 0.2916666666666667}], 
-              ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
-             InsetBox["0", Offset[{3., 0.}, {0., 0.5}], ImageScaled[{0, 0.5}],
-               Automatic, {1, 0}], InsetBox[
-              TagBox[
-               InterpretationBox[
-                StyleBox["\<\"0.25\"\>",
-                 ShowStringCharacters->False],
-                0.25,
-                AutoDelete->True],
-               NumberForm[#, {
-                 DirectedInfinity[1], 2}]& ], 
-              Offset[{3., 0.}, {0., 0.7083333333333334}], 
-              ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
-              TagBox[
-               InterpretationBox[
-                StyleBox["\<\"0.50\"\>",
-                 ShowStringCharacters->False],
-                0.5,
-                AutoDelete->True],
-               NumberForm[#, {
-                 DirectedInfinity[1], 2}]& ], 
-              Offset[{3., 0.}, {0., 0.9166666666666667}], 
-              ImageScaled[{0, 0.5}], Automatic, {1, 0}]}, 
-            {GrayLevel[1]}}, {}},
-          StripOnInput->False,
-          FontFamily->"Helvetica",
-          FontSize->10]}}},
-      Antialiasing->False]}, {}}, InsetBox[
-    StyleBox[
-     StyleBox["\<\"Frequency\"\>",
-      StripOnInput->False,
-      LineColor->GrayLevel[1],
-      FrontFaceColor->GrayLevel[1],
-      BackFaceColor->GrayLevel[1],
-      GraphicsColor->GrayLevel[1],
-      FontColor->GrayLevel[1]],
-     StripOnInput->False,
-     LineColor->GrayLevel[0.25],
-     FrontFaceColor->GrayLevel[0.25],
-     BackFaceColor->GrayLevel[0.25],
-     GraphicsColor->GrayLevel[0.25],
-     FontFamily->"Helvetica",
-     FontSize->10,
-     FontColor->GrayLevel[0.25]], {0., -0.05}, Top, Automatic], {
-    {RGBColor[0.73, 0.24506099999999992`, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.73, 0.24506099999999992`, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           RowBox[{"-", "0.20000000298023224`"}]],
-          Annotation[#, -0.20000000298023224`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.3333333308498065}}]}, 
-    {RGBColor[0.1971, 0.5022473119339774, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.5022473119339774, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.5356156238679548, 0.73, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.5356156238679548, 0.73, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.5712760641980676, 0.1971, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.5712760641980676, 0.1971, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.1971, 0.73, 0.5379077522640902], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.73, 0.5379077522640902], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           RowBox[{"-", "0.20000000298023224`"}]],
-          Annotation[#, -0.20000000298023224`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.3333333308498065}}]}, 
-    {RGBColor[0.73, 0.5045394403301129, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.73, 0.5045394403301129, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0.20000000298023224`"],
-          Annotation[#, 0.20000000298023224`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.6666666691501936}}]}, 
-    {RGBColor[0.1971, 0.24276887160386468`, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.24276887160386468`, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.27613718353784195`, 0.73, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.27613718353784195`, 0.73, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           RowBox[{"-", "0.10000000149011612`"}]],
-          Annotation[#, -0.10000000149011612`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.4166666654249032}}]}, 
-    {RGBColor[0.73, 0.1971, 0.6292454954718195], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.73, 0.1971, 0.6292454954718195], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0.10000000149011612`"],
-          Annotation[#, 0.10000000149011612`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5833333345750967}}]}, 
-    {RGBColor[0.1971, 0.662613807405797, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.662613807405797, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           RowBox[{"-", "0.10000000149011612`"}]],
-          Annotation[#, -0.10000000149011612`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.4166666654249032}}]}, 
-    {RGBColor[0.6959821193397744, 0.73, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.6959821193397744, 0.73, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.4109095687262533, 0.1971, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.4109095687262533, 0.1971, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.1971, 0.73, 0.3775412567922707], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.73, 0.3775412567922707], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.73, 0.34417294485828825`, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.73, 0.34417294485828825`, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.1971, 0.4031353670756841, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.4031353670756841, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.4365036790096564, 0.73, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.4365036790096564, 0.73, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           RowBox[{"-", "0.30000001192092896`"}]],
-          Annotation[#, -0.30000001192092896`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999998, 0.}}, {-0.0375, 0.24999999006589252`}}]}, 
-    {RGBColor[0.6703880090563608, 0.1971, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.6703880090563608, 0.1971, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}}, {}, 
-   GeometricTransformationBox[{}, {{{0, -1}, {1, 0}}, {0, 0}}]},
-  AlignmentPoint->Center,
-  AspectRatio->Automatic,
-  Axes->False,
-  AxesLabel->None,
-  AxesOrigin->Automatic,
-  AxesStyle->GrayLevel[0.5],
-  Background->None,
-  BaseStyle->{},
-  BaselinePosition->Automatic,
-  ColorOutput->Automatic,
-  ContentSelectable->Automatic,
-  CoordinatesToolOptions:>Automatic,
-  DisplayFunction->Identity,
-  Epilog->{},
-  FormatType->TraditionalForm,
-  Frame->False,
-  FrameLabel->None,
-  FrameStyle->{},
-  FrameTicks->Automatic,
-  FrameTicksStyle->{},
-  GridLines->None,
-  GridLinesStyle->{},
-  ImageMargins->0.,
-  ImagePadding->All,
-  ImageSize->Small,
-  ImageSizeRaw->Automatic,
-  LabelStyle->Directive[
-    GrayLevel[1]],
-  Method->{
-   "DefaultBoundaryStyle" -> Automatic, 
-    "DefaultGraphicsInteraction" -> {
-     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
-      "Effects" -> {
-       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
-        "Droplines" -> {
-         "freeformCursorMode" -> True, 
-          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
-    Automatic},
-  PlotLabel->None,
-  PlotRange->All,
-  PlotRangeClipping->False,
-  PlotRangePadding->Automatic,
-  PlotRegion->Automatic,
-  PreserveImageOptions->Automatic,
-  Prolog->{},
-  RotateLabel->True,
-  Ticks->Automatic,
-  TicksStyle->{}]], "Output",
- CellChangeTimes->{{3.8437834325133295`*^9, 3.843783444755835*^9}, 
-   3.8437834804706745`*^9, 3.8437838864308634`*^9, 3.843783950699961*^9},
- CellLabel->
-  "Out[358]=",ExpressionUUID->"9abe9dc8-be0a-4398-9ed9-229576b91193"]
-}, Open  ]],
+"]]}}]}, GeometricTransformationBox[{}, {{{0, -1}, {1, 0}}, {0, 0}}], {
+{GrayLevel[0.5], AbsoluteThickness[1], 
+StyleBox[{
+{GrayLevel[0.5], LineBox[{{0., 0.}, {0., 1.}}]}, 
+{GrayLevel[0.5], AbsoluteThickness[0.5], CapForm[
+         "Butt"], {
+          LineBox[{{{0., 0.08333333333333331}, 
+             Scaled[{-0.06, 0.}, {0., 0.08333333333333331}]}, {{0., 
+             0.2916666666666667}, 
+             Scaled[{-0.06, 0.}, {0., 0.2916666666666667}]}, {{0., 0.5}, 
+             Scaled[{-0.06, 0.}, {0., 0.5}]}, {{0., 0.7083333333333334}, 
+             Scaled[{-0.06, 0.}, {0., 0.7083333333333334}]}, {{0., 
+             0.9166666666666667}, 
+             Scaled[{-0.06, 0.}, {0., 0.9166666666666667}]}}], LineBox[{}]}, 
+{GrayLevel[1], 
+StyleBox[{{
+{GrayLevel[1], InsetBox[
+TagBox[
+InterpretationBox[
+StyleBox["\<\"-0.50\"\>",
+ShowStringCharacters->False],
+-0.5,
+AutoDelete->True],
+NumberForm[#, {
+DirectedInfinity[1], 2}]& ], Offset[{3., 0.}, {0., 0.08333333333333331}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
+TagBox[
+InterpretationBox[
+StyleBox["\<\"-0.25\"\>",
+ShowStringCharacters->False],
+-0.25,
+AutoDelete->True],
+NumberForm[#, {
+DirectedInfinity[1], 2}]& ], Offset[{3., 0.}, {0., 0.2916666666666667}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+              InsetBox["0", Offset[{3., 0.}, {0., 0.5}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
+TagBox[
+InterpretationBox[
+StyleBox["\<\"0.25\"\>",
+ShowStringCharacters->False],
+0.25,
+AutoDelete->True],
+NumberForm[#, {
+DirectedInfinity[1], 2}]& ], Offset[{3., 0.}, {0., 0.7083333333333334}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
+TagBox[
+InterpretationBox[
+StyleBox["\<\"0.50\"\>",
+ShowStringCharacters->False],
+0.5,
+AutoDelete->True],
+NumberForm[#, {
+DirectedInfinity[1], 2}]& ], Offset[{3., 0.}, {0., 0.9166666666666667}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}]}, 
+{GrayLevel[1]}}, {}},
+StripOnInput->False,
+FontFamily->"Helvetica",
+FontSize->10]}}},
+Antialiasing->False]}, {}}, InsetBox[
+StyleBox[
+StyleBox["\<\"Frequency\"\>",
+StripOnInput->False,
+LineColor->GrayLevel[1],
+FrontFaceColor->GrayLevel[1],
+BackFaceColor->GrayLevel[1],
+GraphicsColor->GrayLevel[1],
+FontColor->GrayLevel[1]],
+StripOnInput->False,
+LineColor->GrayLevel[0.25],
+FrontFaceColor->GrayLevel[0.25],
+BackFaceColor->GrayLevel[0.25],
+GraphicsColor->GrayLevel[0.25],
+FontFamily->"Helvetica",
+FontSize->10,
+FontColor->GrayLevel[0.25]], {0., -0.05}, Top, Automatic], {
+{RGBColor[0.73, 0.24506099999999992`, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.73, 0.24506099999999992`, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+RowBox[{"-", "0.20000000298023224`"}]],
+Annotation[#, -0.20000000298023224`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.3333333308498065}}]}, 
+{RGBColor[0.1971, 0.5022473119339774, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.5022473119339774, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.5356156238679548, 0.73, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.5356156238679548, 0.73, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.5712760641980676, 0.1971, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.5712760641980676, 0.1971, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.1971, 0.73, 0.5379077522640902], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.73, 0.5379077522640902], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+RowBox[{"-", "0.20000000298023224`"}]],
+Annotation[#, -0.20000000298023224`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.3333333308498065}}]}, 
+{RGBColor[0.73, 0.5045394403301129, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.73, 0.5045394403301129, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0.20000000298023224`"],
+Annotation[#, 0.20000000298023224`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.6666666691501936}}]}, 
+{RGBColor[0.1971, 0.24276887160386468`, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.24276887160386468`, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.27613718353784195`, 0.73, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.27613718353784195`, 0.73, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+RowBox[{"-", "0.10000000149011612`"}]],
+Annotation[#, -0.10000000149011612`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.4166666654249032}}]}, 
+{RGBColor[0.73, 0.1971, 0.6292454954718195], GeometricTransformationBox[{{}, 
+{RGBColor[0.73, 0.1971, 0.6292454954718195], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0.10000000149011612`"],
+Annotation[#, 0.10000000149011612`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5833333345750967}}]}, 
+{RGBColor[0.1971, 0.662613807405797, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.662613807405797, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+RowBox[{"-", "0.10000000149011612`"}]],
+Annotation[#, -0.10000000149011612`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.4166666654249032}}]}, 
+{RGBColor[0.6959821193397744, 0.73, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.6959821193397744, 0.73, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.4109095687262533, 0.1971, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.4109095687262533, 0.1971, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.1971, 0.73, 0.3775412567922707], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.73, 0.3775412567922707], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.73, 0.34417294485828825`, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.73, 0.34417294485828825`, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.1971, 0.4031353670756841, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.4031353670756841, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.4365036790096564, 0.73, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.4365036790096564, 0.73, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+RowBox[{"-", "0.30000001192092896`"}]],
+Annotation[#, -0.30000001192092896`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999998, 0.}}, {-0.0375, 0.24999999006589252`}}]}, 
+{RGBColor[0.6703880090563608, 0.1971, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.6703880090563608, 0.1971, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}}, {}, 
+    GeometricTransformationBox[{}, {{{0, -1}, {1, 0}}, {0, 0}}]},
+AlignmentPoint->Center,
+AspectRatio->Automatic,
+Axes->False,
+AxesLabel->None,
+AxesOrigin->Automatic,
+AxesStyle->GrayLevel[0.5],
+Background->None,
+BaseStyle->{},
+BaselinePosition->Automatic,
+ColorOutput->Automatic,
+ContentSelectable->Automatic,
+CoordinatesToolOptions:>Automatic,
+DisplayFunction->Identity,
+Epilog->{},
+FormatType->TraditionalForm,
+Frame->False,
+FrameLabel->None,
+FrameStyle->{},
+FrameTicks->Automatic,
+FrameTicksStyle->{},
+GridLines->None,
+GridLinesStyle->{},
+ImageMargins->0.,
+ImagePadding->All,
+ImageSize->Small,
+ImageSizeRaw->Automatic,
+LabelStyle->Directive[
+GrayLevel[1]],
+Method->{"DefaultBoundaryStyle" -> Automatic, 
+     "DefaultGraphicsInteraction" -> {
+      "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+       "Effects" -> {
+        "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+         "Droplines" -> {
+          "freeformCursorMode" -> True, 
+           "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+     "DefaultPlotStyle" -> Automatic},
+PlotLabel->None,
+PlotRange->All,
+PlotRangeClipping->False,
+PlotRangePadding->Automatic,
+PlotRegion->Automatic,
+PreserveImageOptions->Automatic,
+Prolog->{},
+RotateLabel->True,
+Ticks->Automatic,
+TicksStyle->{}]\)
 
-Cell[CellGroupData[{
+In[534]:= VerticalGauge[IndicatorSentiment, {-0.6, 0.6}, 
+ GaugeMarkers -> Placed["Bar", "Scale"], GaugeFaceStyle -> Black, 
+ GaugeFrameStyle -> Darker[Gray], GaugeLabels -> Placed["Frequency", Bottom], 
+ AxesStyle -> Gray, LabelStyle -> Directive[White], ScaleDivisions -> 6]
 
-Cell[BoxData[
- RowBox[{"VerticalGauge", "[", 
-  RowBox[{"IndicatorSentiment", ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"-", "0.6`"}], ",", "0.6`"}], "}"}], ",", 
-   RowBox[{"GaugeMarkers", "\[Rule]", 
-    RowBox[{"Placed", "[", 
-     RowBox[{"\"\<Bar\>\"", ",", "\"\<Scale\>\""}], "]"}]}], ",", 
-   RowBox[{"GaugeFaceStyle", "\[Rule]", "Black"}], ",", 
-   RowBox[{"GaugeFrameStyle", "\[Rule]", 
-    RowBox[{"Darker", "[", "Gray", "]"}]}], ",", 
-   RowBox[{"GaugeLabels", "\[Rule]", 
-    RowBox[{"Placed", "[", 
-     RowBox[{"\"\<Frequency\>\"", ",", "Bottom"}], "]"}]}], ",", 
-   RowBox[{"AxesStyle", "\[Rule]", "Gray"}], ",", 
-   RowBox[{"LabelStyle", "\[Rule]", 
-    RowBox[{"Directive", "[", "White", "]"}]}], ",", 
-   RowBox[{"ScaleDivisions", "\[Rule]", "6"}]}], "]"}]], "Input",
- NumberMarks->False,
- CellLabel->
-  "In[354]:=",ExpressionUUID->"988276d8-428f-45ba-acf6-2873ba6a3690"],
-
-Cell[BoxData[
- GraphicsBox[{
-   {RGBColor[
-    0.33333333333333337`, 0.33333333333333337`, 0.33333333333333337`], 
-    FilledCurveBox[{{Line[CompressedData["
+Out[534]= \!\(\*
+GraphicsBox[{
+{RGBColor[0.33333333333333337`, 0.33333333333333337`, 0.33333333333333337`], 
+     FilledCurveBox[{{Line[CompressedData["
 1:eJxVlX9MzGEcx7/5OTnixLJoNT92mFWYIXzScIj8PEJLWDQ5VspM05C7zW9Z
 WjHjjzM2za6u7r5n8um+36mZ0DK/lsZhsX7xSNfIzI89b5vvdrs927Pn+Xze
 79fn/URt27smvY+iKBm/f3/+p//9dA6YUs5q3Z/JnLU/9HKMzluUPdEGRVC7
@@ -542,7 +405,7 @@ xxnhkdHLR3sZvAY8dWPnm70Mnh3x2bWTM70M3g2vS5s7jnkZ86CPjEyxFnn5
 /3n5t2asMW/Yj3nEeZhX3Id5Rj2Yd9SLPEA/yAv0izyBHsgb6IU8gp7IK+iN
 PIMfyDv4hTyEn8hL+I08BQ/IW/CCPAZPyGvwhjwHj8h78Ir3ADzjvQDveE8w
 D3hvMC+/AKdvdPU=
-        "]]}, {Line[CompressedData["
+"]]}, {Line[CompressedData["
 1:eJw9lXtMzWEYx0tTLSzUSZLStCgbLUSanlzCNLNfGaIdSS5zGSGyjHNQzWUr
 sRjTvey4NCedOtU556lzzm8aG1tlc4kx0SiXF4dl/qB5v/44+513e/e+z/P9
 fp7vG5a5N2XrCDc3tx1/f8Nfu2t6epFd5dD8AcUcIijdw2pKZZUzu9w3XJwh
@@ -564,8 +427,8 @@ y8rg0Zy4J0JMsDF4veW0FW9SbAyeCz5f2LL8mI3Be2FOfmJemY0xD4Nxt8ue
 GW2MeWmRc4R5whrzhv2YR5yHecV9mGfUg3lHvcgD9IO8QL/IE+iBvIFeyCPo
 ibyC3sgz+IG8g1/IQ/iJvITfyFPwgLwFL8hj8IS8Bm/Ic/CIvAeveA/AM94L
 8I73BPOA9wbz8geZtW+7
-        "]]}}]}, 
-   {GrayLevel[0], FilledCurveBox[{{Line[CompressedData["
+"]]}}]}, 
+{GrayLevel[0], FilledCurveBox[{{Line[CompressedData["
 1:eJxVlX9MzGEcx7/5OTnixLJoNT92mFWYIXzScIj8PEJLWDQ5VspM05C7zW9Z
 WjHjjzM2za6u7r5n8um+36mZ0DK/lsZhsX7xSNfIzI89b5vvdrs927Pn+Xze
 79fn/URt27smvY+iKBm/f3/+p//9dA6YUs5q3Z/JnLU/9HKMzluUPdEGRVC7
@@ -587,564 +450,444 @@ xxnhkdHLR3sZvAY8dWPnm70Mnh3x2bWTM70M3g2vS5s7jnkZ86CPjEyxFnn5
 /3n5t2asMW/Yj3nEeZhX3Id5Rj2Yd9SLPEA/yAv0izyBHsgb6IU8gp7IK+iN
 PIMfyDv4hTyEn8hL+I08BQ/IW/CCPAZPyGvwhjwHj8h78Ir3ADzjvQDveE8w
 D3hvMC+/AKdvdPU=
-        "]]}}]}, GeometricTransformationBox[{}, {{{0, -1}, {1, 0}}, {0, 0}}], {
-    {GrayLevel[0.5], AbsoluteThickness[1], 
-     StyleBox[{
-       {GrayLevel[0.5], LineBox[{{0., 0.}, {0., 1.}}]}, 
-       {GrayLevel[0.5], AbsoluteThickness[0.5], CapForm[
-        "Butt"], {
-         LineBox[{{{0., 0.}, Scaled[{-0.06, 0.}, {0., 0.}]}, {{0., 
-            0.16666666666666663`}, 
-            Scaled[{-0.06, 0.}, {0., 0.16666666666666663`}]}, {{0., 
-            0.3333333333333333}, 
-            Scaled[{-0.06, 0.}, {0., 0.3333333333333333}]}, {{0., 0.5}, 
-            Scaled[{-0.06, 0.}, {0., 0.5}]}, {{0., 0.6666666666666667}, 
-            Scaled[{-0.06, 0.}, {0., 0.6666666666666667}]}, {{0., 
-            0.8333333333333334}, 
-            Scaled[{-0.06, 0.}, {0., 0.8333333333333334}]}, {{0., 1.}, 
-            Scaled[{-0.06, 0.}, {0., 1.}]}}], LineBox[{}]}, 
-        {GrayLevel[1], 
-         StyleBox[{{
-            {GrayLevel[1], InsetBox[
-              TagBox[
-               InterpretationBox[
-                StyleBox["\<\"-0.6\"\>",
-                 ShowStringCharacters->False],
-                -0.6,
-                AutoDelete->True],
-               NumberForm[#, {
-                 DirectedInfinity[1], 1}]& ], Offset[{3., 0.}, {0., 0.}], 
-              ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
-              TagBox[
-               InterpretationBox[
-                StyleBox["\<\"-0.4\"\>",
-                 ShowStringCharacters->False],
-                -0.4,
-                AutoDelete->True],
-               NumberForm[#, {
-                 DirectedInfinity[1], 1}]& ], 
-              Offset[{3., 0.}, {0., 0.16666666666666663}], 
-              ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
-              TagBox[
-               InterpretationBox[
-                StyleBox["\<\"-0.2\"\>",
-                 ShowStringCharacters->False],
-                -0.2,
-                AutoDelete->True],
-               NumberForm[#, {
-                 DirectedInfinity[1], 1}]& ], 
-              Offset[{3., 0.}, {0., 0.3333333333333333}], 
-              ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
-             InsetBox["0", Offset[{3., 0.}, {0., 0.5}], ImageScaled[{0, 0.5}],
-               Automatic, {1, 0}], InsetBox[
-              TagBox[
-               InterpretationBox[
-                StyleBox["\<\"0.2\"\>",
-                 ShowStringCharacters->False],
-                0.2,
-                AutoDelete->True],
-               NumberForm[#, {
-                 DirectedInfinity[1], 1}]& ], 
-              Offset[{3., 0.}, {0., 0.6666666666666667}], 
-              ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
-              TagBox[
-               InterpretationBox[
-                StyleBox["\<\"0.4\"\>",
-                 ShowStringCharacters->False],
-                0.4,
-                AutoDelete->True],
-               NumberForm[#, {
-                 DirectedInfinity[1], 1}]& ], 
-              Offset[{3., 0.}, {0., 0.8333333333333334}], 
-              ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
-              TagBox[
-               InterpretationBox[
-                StyleBox["\<\"0.6\"\>",
-                 ShowStringCharacters->False],
-                0.6,
-                AutoDelete->True],
-               NumberForm[#, {
-                 DirectedInfinity[1], 1}]& ], Offset[{3., 0.}, {0., 1.}], 
-              ImageScaled[{0, 0.5}], Automatic, {1, 0}]}, 
-            {GrayLevel[1]}}, {}},
-          StripOnInput->False,
-          FontFamily->"Helvetica",
-          FontSize->10]}}},
-      Antialiasing->False]}, {}}, InsetBox[
-    StyleBox[
-     StyleBox["\<\"Frequency\"\>",
-      StripOnInput->False,
-      LineColor->GrayLevel[1],
-      FrontFaceColor->GrayLevel[1],
-      BackFaceColor->GrayLevel[1],
-      GraphicsColor->GrayLevel[1],
-      FontColor->GrayLevel[1]],
-     StripOnInput->False,
-     LineColor->GrayLevel[0.25],
-     FrontFaceColor->GrayLevel[0.25],
-     BackFaceColor->GrayLevel[0.25],
-     GraphicsColor->GrayLevel[0.25],
-     FontFamily->"Helvetica",
-     FontSize->10,
-     FontColor->GrayLevel[0.25]], {0., -0.05}, Top, Automatic], {
-    {RGBColor[0.73, 0.24506099999999992`, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.73, 0.24506099999999992`, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           RowBox[{"-", "0.20000000298023224`"}]],
-          Annotation[#, -0.20000000298023224`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.3333333308498065}}]}, 
-    {RGBColor[0.1971, 0.5022473119339774, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.5022473119339774, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.5356156238679548, 0.73, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.5356156238679548, 0.73, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.5712760641980676, 0.1971, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.5712760641980676, 0.1971, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.1971, 0.73, 0.5379077522640902], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.73, 0.5379077522640902], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           RowBox[{"-", "0.20000000298023224`"}]],
-          Annotation[#, -0.20000000298023224`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.3333333308498065}}]}, 
-    {RGBColor[0.73, 0.5045394403301129, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.73, 0.5045394403301129, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0.20000000298023224`"],
-          Annotation[#, 0.20000000298023224`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.6666666691501936}}]}, 
-    {RGBColor[0.1971, 0.24276887160386468`, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.24276887160386468`, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.27613718353784195`, 0.73, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.27613718353784195`, 0.73, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           RowBox[{"-", "0.10000000149011612`"}]],
-          Annotation[#, -0.10000000149011612`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.4166666654249032}}]}, 
-    {RGBColor[0.73, 0.1971, 0.6292454954718195], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.73, 0.1971, 0.6292454954718195], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0.10000000149011612`"],
-          Annotation[#, 0.10000000149011612`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5833333345750967}}]}, 
-    {RGBColor[0.1971, 0.662613807405797, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.662613807405797, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           RowBox[{"-", "0.10000000149011612`"}]],
-          Annotation[#, -0.10000000149011612`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.4166666654249032}}]}, 
-    {RGBColor[0.6959821193397744, 0.73, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.6959821193397744, 0.73, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.4109095687262533, 0.1971, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.4109095687262533, 0.1971, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.1971, 0.73, 0.3775412567922707], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.73, 0.3775412567922707], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.73, 0.34417294485828825`, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.73, 0.34417294485828825`, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.1971, 0.4031353670756841, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.1971, 0.4031353670756841, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
-    {RGBColor[0.4365036790096564, 0.73, 0.1971], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.4365036790096564, 0.73, 0.1971], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           RowBox[{"-", "0.30000001192092896`"}]],
-          Annotation[#, -0.30000001192092896`, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999998, 0.}}, {-0.0375, 0.24999999006589252`}}]}, 
-    {RGBColor[0.6703880090563608, 0.1971, 0.73], 
-     GeometricTransformationBox[{{}, 
-       {RGBColor[0.6703880090563608, 0.1971, 0.73], {}, 
-        StyleBox[
-         TagBox[
-          TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
-           "0"],
-          Annotation[#, 0, "Tooltip"]& ],
-         "MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
-       0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}}, {}, 
-   GeometricTransformationBox[{}, {{{0, -1}, {1, 0}}, {0, 0}}]},
-  AlignmentPoint->Center,
-  AspectRatio->Automatic,
-  Axes->False,
-  AxesLabel->None,
-  AxesOrigin->Automatic,
-  AxesStyle->GrayLevel[0.5],
-  Background->None,
-  BaseStyle->{},
-  BaselinePosition->Automatic,
-  ColorOutput->Automatic,
-  ContentSelectable->Automatic,
-  CoordinatesToolOptions:>Automatic,
-  DisplayFunction->Identity,
-  Epilog->{},
-  FormatType->TraditionalForm,
-  Frame->False,
-  FrameLabel->None,
-  FrameStyle->{},
-  FrameTicks->Automatic,
-  FrameTicksStyle->{},
-  GridLines->None,
-  GridLinesStyle->{},
-  ImageMargins->0.,
-  ImagePadding->All,
-  ImageSize->Small,
-  ImageSizeRaw->Automatic,
-  LabelStyle->Directive[
-    GrayLevel[1]],
-  Method->{
-   "DefaultBoundaryStyle" -> Automatic, 
-    "DefaultGraphicsInteraction" -> {
-     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
-      "Effects" -> {
-       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
-        "Droplines" -> {
-         "freeformCursorMode" -> True, 
-          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
-    Automatic},
-  PlotLabel->None,
-  PlotRange->All,
-  PlotRangeClipping->False,
-  PlotRangePadding->Automatic,
-  PlotRegion->Automatic,
-  PreserveImageOptions->Automatic,
-  Prolog->{},
-  RotateLabel->True,
-  Ticks->Automatic,
-  TicksStyle->{}]], "Output",
- CellChangeTimes->{3.843783459821513*^9},
- CellLabel->
-  "Out[354]=",ExpressionUUID->"bf4ce23b-d1c7-47d5-b6c8-514b018ed66e"]
-}, Open  ]],
+"]]}}]}, GeometricTransformationBox[{}, {{{0, -1}, {1, 0}}, {0, 0}}], {
+{GrayLevel[0.5], AbsoluteThickness[1], 
+StyleBox[{
+{GrayLevel[0.5], LineBox[{{0., 0.}, {0., 1.}}]}, 
+{GrayLevel[0.5], AbsoluteThickness[0.5], CapForm[
+         "Butt"], {
+          LineBox[{{{0., 0.}, Scaled[{-0.06, 0.}, {0., 0.}]}, {{0., 
+             0.16666666666666663`}, 
+             Scaled[{-0.06, 0.}, {0., 0.16666666666666663`}]}, {{0., 
+             0.3333333333333333}, 
+             Scaled[{-0.06, 0.}, {0., 0.3333333333333333}]}, {{0., 0.5}, 
+             Scaled[{-0.06, 0.}, {0., 0.5}]}, {{0., 0.6666666666666667}, 
+             Scaled[{-0.06, 0.}, {0., 0.6666666666666667}]}, {{0., 
+             0.8333333333333334}, 
+             Scaled[{-0.06, 0.}, {0., 0.8333333333333334}]}, {{0., 1.}, 
+             Scaled[{-0.06, 0.}, {0., 1.}]}}], LineBox[{}]}, 
+{GrayLevel[1], 
+StyleBox[{{
+{GrayLevel[1], InsetBox[
+TagBox[
+InterpretationBox[
+StyleBox["\<\"-0.6\"\>",
+ShowStringCharacters->False],
+-0.6,
+AutoDelete->True],
+NumberForm[#, {
+DirectedInfinity[1], 1}]& ], Offset[{3., 0.}, {0., 0.}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
+TagBox[
+InterpretationBox[
+StyleBox["\<\"-0.4\"\>",
+ShowStringCharacters->False],
+-0.4,
+AutoDelete->True],
+NumberForm[#, {
+DirectedInfinity[1], 1}]& ], Offset[{3., 0.}, {0., 0.16666666666666663}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
+TagBox[
+InterpretationBox[
+StyleBox["\<\"-0.2\"\>",
+ShowStringCharacters->False],
+-0.2,
+AutoDelete->True],
+NumberForm[#, {
+DirectedInfinity[1], 1}]& ], Offset[{3., 0.}, {0., 0.3333333333333333}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+              InsetBox["0", Offset[{3., 0.}, {0., 0.5}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
+TagBox[
+InterpretationBox[
+StyleBox["\<\"0.2\"\>",
+ShowStringCharacters->False],
+0.2,
+AutoDelete->True],
+NumberForm[#, {
+DirectedInfinity[1], 1}]& ], Offset[{3., 0.}, {0., 0.6666666666666667}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
+TagBox[
+InterpretationBox[
+StyleBox["\<\"0.4\"\>",
+ShowStringCharacters->False],
+0.4,
+AutoDelete->True],
+NumberForm[#, {
+DirectedInfinity[1], 1}]& ], Offset[{3., 0.}, {0., 0.8333333333333334}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}], InsetBox[
+TagBox[
+InterpretationBox[
+StyleBox["\<\"0.6\"\>",
+ShowStringCharacters->False],
+0.6,
+AutoDelete->True],
+NumberForm[#, {
+DirectedInfinity[1], 1}]& ], Offset[{3., 0.}, {0., 1.}], 
+               ImageScaled[{0, 0.5}], Automatic, {1, 0}]}, 
+{GrayLevel[1]}}, {}},
+StripOnInput->False,
+FontFamily->"Helvetica",
+FontSize->10]}}},
+Antialiasing->False]}, {}}, InsetBox[
+StyleBox[
+StyleBox["\<\"Frequency\"\>",
+StripOnInput->False,
+LineColor->GrayLevel[1],
+FrontFaceColor->GrayLevel[1],
+BackFaceColor->GrayLevel[1],
+GraphicsColor->GrayLevel[1],
+FontColor->GrayLevel[1]],
+StripOnInput->False,
+LineColor->GrayLevel[0.25],
+FrontFaceColor->GrayLevel[0.25],
+BackFaceColor->GrayLevel[0.25],
+GraphicsColor->GrayLevel[0.25],
+FontFamily->"Helvetica",
+FontSize->10,
+FontColor->GrayLevel[0.25]], {0., -0.05}, Top, Automatic], {
+{RGBColor[0.73, 0.24506099999999992`, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.73, 0.24506099999999992`, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+RowBox[{"-", "0.20000000298023224`"}]],
+Annotation[#, -0.20000000298023224`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.3333333308498065}}]}, 
+{RGBColor[0.1971, 0.5022473119339774, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.5022473119339774, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.5356156238679548, 0.73, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.5356156238679548, 0.73, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.5712760641980676, 0.1971, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.5712760641980676, 0.1971, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.1971, 0.73, 0.5379077522640902], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.73, 0.5379077522640902], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+RowBox[{"-", "0.20000000298023224`"}]],
+Annotation[#, -0.20000000298023224`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.3333333308498065}}]}, 
+{RGBColor[0.73, 0.5045394403301129, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.73, 0.5045394403301129, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0.20000000298023224`"],
+Annotation[#, 0.20000000298023224`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.6666666691501936}}]}, 
+{RGBColor[0.1971, 0.24276887160386468`, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.24276887160386468`, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.27613718353784195`, 0.73, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.27613718353784195`, 0.73, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+RowBox[{"-", "0.10000000149011612`"}]],
+Annotation[#, -0.10000000149011612`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.4166666654249032}}]}, 
+{RGBColor[0.73, 0.1971, 0.6292454954718195], GeometricTransformationBox[{{}, 
+{RGBColor[0.73, 0.1971, 0.6292454954718195], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0.10000000149011612`"],
+Annotation[#, 0.10000000149011612`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5833333345750967}}]}, 
+{RGBColor[0.1971, 0.662613807405797, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.662613807405797, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+RowBox[{"-", "0.10000000149011612`"}]],
+Annotation[#, -0.10000000149011612`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.4166666654249032}}]}, 
+{RGBColor[0.6959821193397744, 0.73, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.6959821193397744, 0.73, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.4109095687262533, 0.1971, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.4109095687262533, 0.1971, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.1971, 0.73, 0.3775412567922707], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.73, 0.3775412567922707], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.73, 0.34417294485828825`, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.73, 0.34417294485828825`, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.1971, 0.4031353670756841, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.1971, 0.4031353670756841, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}, 
+{RGBColor[0.4365036790096564, 0.73, 0.1971], GeometricTransformationBox[{{}, 
+{RGBColor[0.4365036790096564, 0.73, 0.1971], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+RowBox[{"-", "0.30000001192092896`"}]],
+Annotation[#, -0.30000001192092896`, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999998, 0.}}, {-0.0375, 0.24999999006589252`}}]}, 
+{RGBColor[0.6703880090563608, 0.1971, 0.73], GeometricTransformationBox[{{}, 
+{RGBColor[0.6703880090563608, 0.1971, 0.73], {}, 
+StyleBox[
+TagBox[
+TooltipBox[PolygonBox[{{0.5, 0.5}, {-0.5, 0.5}, {0., -0.5}}],
+"0"],
+Annotation[#, 0, "Tooltip"]& ],
+"MarkerRotation" -> Rational[1, 2] Pi]}}, {{{0., -0.075}, {
+        0.07499999999999996, 0.}}, {-0.0375, 0.5}}]}}, {}, 
+    GeometricTransformationBox[{}, {{{0, -1}, {1, 0}}, {0, 0}}]},
+AlignmentPoint->Center,
+AspectRatio->Automatic,
+Axes->False,
+AxesLabel->None,
+AxesOrigin->Automatic,
+AxesStyle->GrayLevel[0.5],
+Background->None,
+BaseStyle->{},
+BaselinePosition->Automatic,
+ColorOutput->Automatic,
+ContentSelectable->Automatic,
+CoordinatesToolOptions:>Automatic,
+DisplayFunction->Identity,
+Epilog->{},
+FormatType->TraditionalForm,
+Frame->False,
+FrameLabel->None,
+FrameStyle->{},
+FrameTicks->Automatic,
+FrameTicksStyle->{},
+GridLines->None,
+GridLinesStyle->{},
+ImageMargins->0.,
+ImagePadding->All,
+ImageSize->Small,
+ImageSizeRaw->Automatic,
+LabelStyle->Directive[
+GrayLevel[1]],
+Method->{"DefaultBoundaryStyle" -> Automatic, 
+     "DefaultGraphicsInteraction" -> {
+      "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+       "Effects" -> {
+        "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+         "Droplines" -> {
+          "freeformCursorMode" -> True, 
+           "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+     "DefaultPlotStyle" -> Automatic},
+PlotLabel->None,
+PlotRange->All,
+PlotRangeClipping->False,
+PlotRangePadding->Automatic,
+PlotRegion->Automatic,
+PreserveImageOptions->Automatic,
+Prolog->{},
+RotateLabel->True,
+Ticks->Automatic,
+TicksStyle->{}]\)
 
-Cell[BoxData[
- RowBox[{
-  RowBox[{"face", "[", "x_", "]"}], ":=", 
-  RowBox[{"Which", "[", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"IndicatorSentiment", "[", 
-      RowBox[{"[", "x", "]"}], "]"}], ">", "0"}], ",", "HappyFace", ",", 
-    RowBox[{
-     RowBox[{"IndicatorSentiment", "[", 
-      RowBox[{"[", "x", "]"}], "]"}], " ", "==", " ", "0"}], ",", " ", 
-    "NeutralFace", ",", " ", 
-    RowBox[{
-     RowBox[{"IndicatorSentiment", "[", 
-      RowBox[{"[", "x", "]"}], "]"}], "<", "1"}], ",", "SadFace"}], 
-   "]"}]}]], "Input",
- CellChangeTimes->{{3.843780267646307*^9, 3.84378028390765*^9}, {
-   3.843780361425951*^9, 3.8437805564670014`*^9}, {3.8437810459744434`*^9, 
-   3.8437810592541623`*^9}, 3.843781138332266*^9, {3.8437812714514503`*^9, 
-   3.8437812834830294`*^9}, 3.8437814183000584`*^9, {3.84378173273212*^9, 
-   3.843781733763362*^9}, {3.8437822588073955`*^9, 3.843782263061585*^9}},
- CellLabel->
-  "In[328]:=",ExpressionUUID->"837339af-f49d-4f43-bf3d-e0a8530cbb75"],
+In[543]:= IndicatorFace[x_] := 
+ Which[IndicatorSentiment[[x]] > 0, HappyFace, IndicatorSentiment[[x]] == 0, 
+  NeutralFace, IndicatorSentiment[[x]] < 1, SadFace]
 
-Cell[CellGroupData[{
+In[536]:= TargetFace[x_] := 
+ Which[TargetSentiment[[x]] > 0, HappyFace, TargetSentiment[[x]] == 0, 
+  NeutralFace, TargetSentiment[[x]] < 1, SadFace]
 
-Cell[BoxData[
- RowBox[{"Manipulate", "[", 
-  RowBox[{
-   RowBox[{"GraphicsRow", "[", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"VerticalGauge", "[", 
-       RowBox[{
-        RowBox[{"IndicatorSentiment", "[", 
-         RowBox[{"[", "SDG", "]"}], "]"}], ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"-", "0.6`"}], ",", "0.6`"}], "}"}], ",", 
-        RowBox[{"GaugeMarkers", "\[Rule]", 
-         RowBox[{"Placed", "[", 
-          RowBox[{"\"\<Bar\>\"", ",", "\"\<Scale\>\""}], "]"}]}], ",", 
-        RowBox[{"GaugeFaceStyle", "\[Rule]", "Black"}], ",", 
-        RowBox[{"GaugeFrameStyle", "\[Rule]", 
-         RowBox[{"Darker", "[", "Gray", "]"}]}], ",", 
-        RowBox[{"ScaleDivisions", "\[Rule]", "5"}], ",", 
-        RowBox[{"GaugeLabels", "\[Rule]", 
-         RowBox[{"Placed", "[", 
-          RowBox[{"\"\<Frequency\>\"", ",", "Bottom"}], "]"}]}], ",", 
-        RowBox[{"AxesStyle", "\[Rule]", "Gray"}], ",", 
-        RowBox[{"LabelStyle", "\[Rule]", 
-         RowBox[{"Directive", "[", "White", "]"}]}]}], "]"}], ",", 
-      RowBox[{"face", "[", "SDG", "]"}]}], "}"}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"SDG", ",", "1", ",", 
-     RowBox[{"Length", "[", "IndicatorSentiment", "]"}], ",", "1"}], "}"}]}], 
-  "]"}]], "Input",
- CellChangeTimes->{{3.8437807517639112`*^9, 3.843780752689453*^9}, {
-  3.8437807991173677`*^9, 3.8437808201752615`*^9}, {3.8437808723552585`*^9, 
-  3.843780903035981*^9}, {3.8437809440339794`*^9, 3.8437810003017087`*^9}, {
-  3.8437810665382624`*^9, 3.8437810851458817`*^9}, {3.8437811518523703`*^9, 
-  3.8437811794469213`*^9}, {3.843781333214243*^9, 3.8437813385067635`*^9}, {
-  3.8437817387775526`*^9, 3.843781739374987*^9}, {3.8437817825894785`*^9, 
-  3.8437818113252296`*^9}, {3.843781854259898*^9, 3.8437818813488784`*^9}, {
-  3.8437822204986787`*^9, 3.843782241332018*^9}, {3.8437822789048767`*^9, 
-  3.8437824099746027`*^9}, {3.8437824459154563`*^9, 3.843782493626363*^9}, {
-  3.8437825248802094`*^9, 3.843782535153344*^9}},
- CellLabel->
-  "In[356]:=",ExpressionUUID->"e9934eda-69df-4363-9ee2-2a6a8c3bb81a"],
+In[537]:= Manipulate[
+ GraphicsRow[{VerticalGauge[IndicatorSentiment[[SDG]], {-0.6`, 0.6`}, 
+    GaugeMarkers -> Placed["Bar", "Scale"], GaugeFaceStyle -> Black, 
+    GaugeFrameStyle -> Darker[Gray], ScaleDivisions -> 5, 
+    GaugeLabels -> Placed["Frequency", Bottom], AxesStyle -> Gray, 
+    LabelStyle -> Directive[White]], face[SDG]}], {SDG, 1, 
+  Length[IndicatorSentiment], 1}]
 
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`SDG$$ = 16, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`SDG$$], 1, 17, 1}}, Typeset`size$$ = {
-    169.73746150105364`, {106., 110.}}, Typeset`update$$ = 0, 
-    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`SDG$$ = 1}, 
-      "ControllerVariables" :> {}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> GraphicsRow[{
-         VerticalGauge[
-          Part[$CellContext`IndicatorSentiment, $CellContext`SDG$$], {-0.6, 
-          0.6}, GaugeMarkers -> Placed["Bar", "Scale"], GaugeFaceStyle -> 
-          Black, GaugeFrameStyle -> Darker[Gray], ScaleDivisions -> 5, 
-          GaugeLabels -> Placed["Frequency", Bottom], AxesStyle -> Gray, 
-          LabelStyle -> Directive[White]], 
-         $CellContext`face[$CellContext`SDG$$]}], 
-      "Specifications" :> {{$CellContext`SDG$$, 1, 17, 1}}, "Options" :> {}, 
-      "DefaultOptions" :> {}],
-     ImageSizeCache->{263., {149.13403328722342`, 154.86596671277658`}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.843782266948984*^9, 3.8437822856440616`*^9}, 
-   3.843782418679111*^9, {3.8437824745882573`*^9, 3.843782494772025*^9}, {
-   3.8437825258755627`*^9, 3.843782535903845*^9}, {3.8437826967910166`*^9, 
-   3.843782737095993*^9}, 3.8437835894928856`*^9},
- CellLabel->
-  "Out[356]=",ExpressionUUID->"43a57084-168c-42fa-8a47-202f5fd454c2"]
-}, Open  ]],
+Out[537]= Manipulate[GraphicsRow[{VerticalGauge[IndicatorSentiment[[SDG]], {-0.6, 0.6}, 
+     GaugeMarkers -> Placed["Bar", "Scale"], GaugeFaceStyle -> Black, 
+     GaugeFrameStyle -> Darker[Gray], ScaleDivisions -> 5, 
+     GaugeLabels -> Placed["Frequency", Bottom], AxesStyle -> Gray, 
+     LabelStyle -> Directive[White]], face[SDG]}], {SDG, 1, 17, 1}]
 
-Cell[CellGroupData[{
+In[538]:= CircleGauge = 
+ Manipulate[
+  AngularGauge[IndicatorSentiment[[SDG]], {-1, 1}, 
+   PlotTheme -> {"Minimal", "GaugeHalf"}, 
+   GaugeStyle -> {RGBColor["#77DD76"], RGBColor["#FF6962"]}], {SDG, 1, 
+   Length[IndicatorSentiment], 1}]
 
-Cell[BoxData[
- RowBox[{"Manipulate", "[", 
-  RowBox[{
-   RowBox[{"AngularGauge", "[", 
-    RowBox[{
-     RowBox[{"IndicatorSentiment", "[", 
-      RowBox[{"[", "SDG", "]"}], "]"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
-     RowBox[{"PlotTheme", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"\"\<Minimal\>\"", ",", "\"\<GaugeHalf\>\""}], "}"}]}], ",", 
-     RowBox[{"GaugeStyle", " ", "->", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"RGBColor", "[", 
-         RowBox[{"255", ",", "105", ",", "98"}], "]"}], ",", "LightRed"}], 
-       "}"}]}]}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"SDG", ",", "1", ",", 
-     RowBox[{"Length", "[", "IndicatorSentiment", "]"}], ",", "1"}], "}"}]}], 
-  "]"}]], "Input",
- CellChangeTimes->{{3.843784098471411*^9, 3.8437841953894706`*^9}, {
-  3.843784259422413*^9, 3.8437843319314446`*^9}, {3.8437843683401184`*^9, 
-  3.8437843844915595`*^9}, {3.843784428817545*^9, 3.843784472245801*^9}, {
-  3.843784591110531*^9, 3.843784682669348*^9}, {3.8437847151242228`*^9, 
-  3.8437847230810986`*^9}, {3.8437848782341194`*^9, 3.843784897541423*^9}},
- CellLabel->
-  "In[380]:=",ExpressionUUID->"dd62b668-b701-46db-89b0-de6d85ea75cb"],
+Out[538]= Manipulate[AngularGauge[IndicatorSentiment[[SDG]], {-1, 1}, 
+   PlotTheme -> {"Minimal", "GaugeHalf"}, 
+   GaugeStyle -> {RGBColor["#77DD76"], RGBColor["#FF6962"]}], {SDG, 1, 17, 1}]
 
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`SDG$$ = 1, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`SDG$$], 1, 17, 1}}, Typeset`size$$ = {
-    180., {44., 49.300189545717785`}}, Typeset`update$$ = 0, 
-    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`SDG$$ = 1}, 
-      "ControllerVariables" :> {}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> AngularGauge[
-        Part[$CellContext`IndicatorSentiment, $CellContext`SDG$$], {-1, 1}, 
-        PlotTheme -> {"Minimal", "GaugeHalf"}, GaugeStyle -> {
-          RGBColor[255, 105, 98], LightRed}], 
-      "Specifications" :> {{$CellContext`SDG$$, 1, 17, 1}}, "Options" :> {}, 
-      "DefaultOptions" :> {}],
-     ImageSizeCache->{263., {88.13403328722343, 93.86596671277657}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.8437841320093713`*^9, 3.8437841956133776`*^9}, {
-   3.8437843034874306`*^9, 3.8437843325862017`*^9}, {3.8437843702942815`*^9, 
-   3.8437843849787664`*^9}, {3.8437844312685423`*^9, 3.8437844406032343`*^9}, 
-   3.8437844742315435`*^9, 3.843784596449063*^9, {3.843784647503746*^9, 
-   3.843784683246311*^9}, {3.84378471638488*^9, 3.8437847236944585`*^9}, 
-   3.8437848982794743`*^9},
- CellLabel->
-  "Out[380]=",ExpressionUUID->"b170a6ca-a487-4f70-a34c-3d0f4ee03466"]
-}, Open  ]]
-}, Open  ]]
-},
-WindowSize->{832.1999999999999, 795.5999999999999},
-WindowMargins->{{Automatic, -4.799999999999727}, {Automatic, 0}},
-FrontEndVersion->"12.3 for Microsoft Windows (64-bit) (July 9, 2021)",
-StyleDefinitions->"Default.nb",
-ExpressionUUID->"47f199c4-650a-43cb-b947-3a5c706aeae4"
-]
-(* End of Notebook Content *)
+In[540]:= Manipulate[
+ Overlay[{AngularGauge[IndicatorSentiment[[SDG]], {-1, 1}, 
+    PlotTheme -> {"Minimal"}, 
+    GaugeStyle -> {RGBColor["#77DD76"], RGBColor["#FF6962"]}], face[SDG]}, 
+  Alignment -> {Center, -.13}], {SDG, 1, Length[IndicatorSentiment], 1}]
 
-(* Internal cache information *)
-(*CellTagsOutline
-CellTagsIndex->{}
-*)
-(*CellTagsIndex
-CellTagsIndex->{}
-*)
-(*NotebookFileOutline
-Notebook[{
-Cell[CellGroupData[{
-Cell[580, 22, 181, 6, 160, "Title",ExpressionUUID->"c80c47ed-46c3-4a3d-a2a1-ba385f708b95"],
-Cell[764, 30, 707, 14, 86, "Input",ExpressionUUID->"72cc99ec-46bc-4748-9724-7cd0130769e5"],
-Cell[1474, 46, 1298, 32, 67, "Input",ExpressionUUID->"2710c2cf-2bf4-4dfd-aedb-acc0fa32aadd"],
-Cell[CellGroupData[{
-Cell[2797, 82, 1829, 33, 105, "Input",ExpressionUUID->"dd693ba0-f36e-472f-849d-6464d58e4cb9"],
-Cell[4629, 117, 16697, 373, 282, "Output",ExpressionUUID->"9abe9dc8-be0a-4398-9ed9-229576b91193"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[21363, 495, 896, 21, 67, "Input",ExpressionUUID->"988276d8-428f-45ba-acf6-2873ba6a3690"],
-Cell[22262, 518, 17451, 392, 233, "Output",ExpressionUUID->"bf4ce23b-d1c7-47d5-b6c8-514b018ed66e"]
-}, Open  ]],
-Cell[39728, 913, 983, 22, 48, "Input",ExpressionUUID->"837339af-f49d-4f43-bf3d-e0a8530cbb75"],
-Cell[CellGroupData[{
-Cell[40736, 939, 2075, 42, 124, "Input",ExpressionUUID->"e9934eda-69df-4363-9ee2-2a6a8c3bb81a"],
-Cell[42814, 983, 2242, 43, 323, "Output",ExpressionUUID->"43a57084-168c-42fa-8a47-202f5fd454c2"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[45093, 1031, 1224, 29, 48, "Input",ExpressionUUID->"dd62b668-b701-46db-89b0-de6d85ea75cb"],
-Cell[46320, 1062, 2139, 41, 224, "Output",ExpressionUUID->"b170a6ca-a487-4f70-a34c-3d0f4ee03466"]
-}, Open  ]]
-}, Open  ]]
-}
-]
-*)
+Out[540]= Manipulate[Overlay[{AngularGauge[IndicatorSentiment[[SDG]], {-1, 1}, 
+     PlotTheme -> {"Minimal"}, GaugeStyle -> {RGBColor["#77DD76"], 
+       RGBColor["#FF6962"]}], face[SDG]}, Alignment -> {Center, -0.13}], 
+  {SDG, 1, 17, 1}]
 
+In[557]:= GraphicsRow[{Manipulate[
+   Overlay[{AngularGauge[IndicatorSentiment[[Indicator]], {-1, 1}, 
+      PlotTheme -> {"Minimal"}, 
+      GaugeStyle -> {RGBColor["#48A14D"], RGBColor["#A1489C"]}], 
+     IndicatorFace[Indicator]}, Alignment -> {Center, -.13}], {Indicator, 1, 
+    Length[IndicatorSentiment], 1}], 
+  Manipulate[
+   Overlay[{AngularGauge[TargetSentiment[[Target]], {-1, 1}, 
+      PlotTheme -> {"Minimal"}, 
+      GaugeStyle -> {RGBColor["#48A14D"], RGBColor["#FF6962"]}], 
+     TargetFace[Target]}, Alignment -> {Center, -.13}], {Target, 1, 
+    Length[IndicatorSentiment], 1}]}]
+
+Out[557]= \!\(\*
+GraphicsBox[{{}, {InsetBox[
+TagBox[
+FormBox[
+StyleBox[
+DynamicModuleBox[{$CellContext`Indicator$$ = 1, Typeset`show$$ = True, 
+          Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+          Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+          "\"untitled\"", Typeset`specs$$ = {{
+Hold[$CellContext`Indicator$$], 1, 17, 1}}, Typeset`size$$ = {
+          180., {81.91699228603393, 87.08300771396607}}, Typeset`update$$ = 0,
+           Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+DynamicBox[Manipulate`ManipulateBoxes[
+           1, TraditionalForm, "Variables" :> {$CellContext`Indicator$$ = 1}, 
+            "ControllerVariables" :> {}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> Overlay[{
+AngularGauge[
+Part[$CellContext`IndicatorSentiment, $CellContext`Indicator$$], {-1, 1}, 
+                PlotTheme -> {"Minimal"}, GaugeStyle -> {
+RGBColor["#48A14D"], 
+RGBColor["#A1489C"]}], 
+$CellContext`IndicatorFace[$CellContext`Indicator$$]}, 
+              Alignment -> {Center, -0.13}], 
+            "Specifications" :> {{$CellContext`Indicator$$, 1, 17, 1}}, 
+            "Options" :> {}, "DefaultOptions" :> {}],
+ImageSizeCache->{276., {123.91699228603392`, 129.08300771396608`}},
+SingleEvaluation->True],
+Deinitialization:>None,
+DynamicModuleValues:>{},
+SynchronousInitialization->True,
+UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+UnsavedVariables:>{Typeset`initDone$$},
+UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+Deployed->True,
+StripOnInput->False],
+TraditionalForm],
+Manipulate`InterpretManipulate[1]], {148.11666666666667, -135.45}, {
+      Center, Center}, {278., 258.}], InsetBox[
+TagBox[
+FormBox[
+StyleBox[
+DynamicModuleBox[{$CellContext`Target$$ = 1, Typeset`show$$ = True, 
+          Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+          Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+          "\"untitled\"", Typeset`specs$$ = {{
+Hold[$CellContext`Target$$], 1, 17, 1}}, Typeset`size$$ = {
+          180., {81.91699228603393, 87.08300771396607}}, Typeset`update$$ = 0,
+           Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+DynamicBox[Manipulate`ManipulateBoxes[
+           1, TraditionalForm, "Variables" :> {$CellContext`Target$$ = 1}, 
+            "ControllerVariables" :> {}, 
+            "OtherVariables" :> {
+             Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+              Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+              Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+              Typeset`initDone$$, Typeset`skipInitDone$$}, "Body" :> Overlay[{
+AngularGauge[
+Part[$CellContext`TargetSentiment, $CellContext`Target$$], {-1, 1}, 
+                PlotTheme -> {"Minimal"}, GaugeStyle -> {
+RGBColor["#48A14D"], 
+RGBColor["#FF6962"]}], 
+$CellContext`TargetFace[$CellContext`Target$$]}, 
+              Alignment -> {Center, -0.13}], 
+            "Specifications" :> {{$CellContext`Target$$, 1, 17, 1}}, 
+            "Options" :> {}, "DefaultOptions" :> {}],
+ImageSizeCache->{267., {123.91699228603392`, 129.08300771396608`}},
+SingleEvaluation->True],
+Deinitialization:>None,
+DynamicModuleValues:>{},
+SynchronousInitialization->True,
+UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+UnsavedVariables:>{Typeset`initDone$$},
+UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+Deployed->True,
+StripOnInput->False],
+TraditionalForm],
+Manipulate`InterpretManipulate[1]], {439.85, -135.45}, {
+      Center, Center}, {269., 258.}]}, {}},
+ImageSize->{
+UpTo[600], Automatic},
+PlotRange->{{0, 583.4666666666667}, {-270.9, 0}},
+PlotRangePadding->{6, 5}]\)
